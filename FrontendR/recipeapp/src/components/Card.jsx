@@ -58,19 +58,3 @@ const Card = ({ dish }) => {
 };
 
 export default Card;
-//
-//
-// dishPic,
-// dishname,
-// dishInst,
-// dishlink,
-// dishArea,
-// dishCategory,
-//
-// dishPic={elem.strMealThumb}
-// dishname={elem.strMeal}
-// dishInst={elem.strInstructions}
-// dishlink={elem.strYoutube}
-// dishArea={elem.strArea}
-// dishCategory={elem.strCategory}
-// dishIngredients={elem.strIngredient1}

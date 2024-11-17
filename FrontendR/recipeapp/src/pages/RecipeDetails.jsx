@@ -1,5 +1,4 @@
 import React from "react";
-import Recipe from "../components/Recipeblock";
 import { useLocation } from "react-router-dom";
 import Ingredients from "../components/Ingredients";
 
@@ -26,17 +25,11 @@ const RecipeDetails = () => {
         Click here to watch video
       </a>
 
-      {/* <video className="text-white" width="320" height="240" controls>
-        <source src={dish.strYoutube} />
-        No video available
-      </video> */}
-      {/* <iframe width="420" height="315" src={dish.strYoutube}></iframe> */}
-
       <p className="text-white">Ingredients</p>
       <div className="text-white">
         <Ingredients ingredients={dish} />
       </div>
-      <p className="text-white">{dish.strInstructions}</p>
+      {/* instructioins in component of ingredients */}
     </div>
   );
 };

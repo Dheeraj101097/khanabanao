@@ -51,7 +51,6 @@ const Recipe = () => {
           value={dish}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()} // Trigger search on Enter key
         />
-        {/* <button className="text-white mr-20">Search</button> */}
         <CiSearch
           className="bg-white mr-20 p-1 h-10 w-8 rounded-r-xl"
           type="submit"
