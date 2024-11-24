@@ -12,13 +12,13 @@ const RecipeDetails = () => {
         className="rounded-[50%] border-black h-1/4 w-1/4 border-2 "
         src={dish.strMealThumb}
       />
-      <h1 className="m-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h1 className="m-2 text-2xl font-bold tracking-tight text-white dark:text-white">
         {dish.strMeal}
       </h1>
-      <h2 className="m-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h2 className="m-2 text-2xl font-bold tracking-tight text-white dark:text-white">
         Area : {dish.strArea}
       </h2>
-      <h2 className="m-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h2 className="m-2 text-2xl font-bold tracking-tight text-white dark:text-white">
         Category : {dish.strCategory}
       </h2>
       <a className="text-white" href={dish.strYoutube}>

@@ -44,7 +44,7 @@ const Recipe = () => {
     <>
       <div className="h-15  flex flex-row justify-center items-center p-3 m-2">
         <input
-          className="h-10 w-60 rounded-l-xl ml-20"
+          className="h-10 w-60 rounded-xl ml-20 mr-2"
           type="text"
           placeholder="Search item ..."
           onChange={handleName}

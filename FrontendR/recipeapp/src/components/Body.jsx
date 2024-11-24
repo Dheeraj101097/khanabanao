@@ -11,7 +11,7 @@ const Body = () => {
           /> */}
         </div>
 
-        <div className="quote">
+        {/* <div className="quote">
           <span className="quote1">
             “A recipe has no soul. You, as the cook, must bring soul to the
             recipe.”
@@ -19,7 +19,7 @@ const Body = () => {
           </span>
 
           <p>Learn a new Dish</p>
-        </div>
+        </div> */}
       </div>
     </>
   );
