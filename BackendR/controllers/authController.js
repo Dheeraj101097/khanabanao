@@ -1,6 +1,7 @@
 const RecipeUserModel = require("../model/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const RecipeModel = require("../model/myRecipe");
 
 const signup = async (req, res) => {
   try {
@@ -55,4 +56,27 @@ const login = async (req, res) => {
   });
 };
 
-module.exports = { signup, login };
+//
+
+const myRecipe = async (req, res) => {
+  try {
+    console.log(req.body);
+
+    const { title, ingredients, instructions, category, image } = req.body;
+    console.log(title, ingredients, instructions, category, image);
+    const newDish = new RecipeModel({
+      title,
+      ingredients,
+      instructions,
+      category,
+      image,
+    });
+    await newDish.save();
+    res.status(200).json({ message: "Dish saved successfully", success: true });
+  } catch (error) {
+    console.error("Error in myRecipeController:", error);
+    res.status(500).json({ message: "Error saving dish", success: false });
+  }
+};
+
+module.exports = { signup, login, myRecipe };

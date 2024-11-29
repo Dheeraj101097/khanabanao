@@ -5,6 +5,7 @@ import Login from "../src/pages/Login";
 import Signup from "../src/pages/Signup";
 import RecipeDetails from "./pages/RecipeDetails";
 import RefreshHandler from "./RefreshHandler";
+import MyRecipe from "./pages/MyRecipe";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <RefreshHandler setAuthenticated={setAuthenticated} />
+
       <Routes>
         <Route path="/home" element={PrivateRoute(<Home />)} />
         <Route path="/" element={PrivateRoute(<Home />)} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         {/* <Route path="/home" element={<Navigate to="/" />} /> */}
         <Route path="/recipeData" element={<RecipeDetails />} />
+        <Route path="/myRecipe" element={<MyRecipe />} />
       </Routes>
     </>
   );

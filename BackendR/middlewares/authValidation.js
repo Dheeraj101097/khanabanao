@@ -34,4 +34,20 @@ const loginValidation = (req, res, next) => {
   next();
 };
 
-module.exports = { signupValidation, loginValidation };
+const recipeValidation = (req, res, next) => {
+  const schema = Joi.object({
+    title: Joi.string(),
+    // description: Joi.string(),
+    ingredients: Joi.array().items(Joi.string()).required(), // Array of strings check this
+    instructions: Joi.array().items(Joi.string()).required(), // Array of strings
+    category: Joi.string(),
+    image: Joi.string(),
+  });
+  const { error } = schema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ message: "recipeDetails error", error });
+  }
+  next();
+};
+
+module.exports = { signupValidation, loginValidation, recipeValidation };
