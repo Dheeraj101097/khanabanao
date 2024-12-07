@@ -34,7 +34,7 @@ const MyRecipePage = () => {
         <h1 className="flex flex-row items-center justify-center">
           My Recipe Page, welcome {loggedInUser}
         </h1>
-        <button className=" text-cyan-400 flex flex-row items-center justify-center">
+        <button className=" text-cyan-400 flex flex-row items-center justify-center ml-96">
           <Link to="/CreateMyRecipe">Write New Recipe</Link>
         </button>
         <h1 className="flex flex-row items-center justify-center text-4xl pt-10">
