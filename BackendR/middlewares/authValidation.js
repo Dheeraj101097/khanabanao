@@ -38,8 +38,8 @@ const recipeValidation = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string(),
     // description: Joi.string(),
-    ingredients: Joi.array().items(Joi.string()).required(), // Array of strings check this
-    instructions: Joi.array().items(Joi.string()).required(), // Array of strings
+    ingredients: Joi.string(), // Array of strings check this
+    instructions: Joi.string(), // Array of strings
     category: Joi.string(),
     image: Joi.string(),
   });

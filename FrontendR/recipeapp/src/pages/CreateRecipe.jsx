@@ -1,14 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { handleFailure, handleSuccess } from "../utils";
+import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-const MyRecipe = () => {
+const CreateRecipe = () => {
   const [dish, setDish] = useState({
     title: "",
     ingredients: "",
     instructions: "",
     category: "",
     image: "",
-    videoLink: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,12 +19,12 @@ const MyRecipe = () => {
     setDish(copyDishData);
     console.log(name, value);
   };
-
+  const navigate = useNavigate();
   //
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/auth/myRecipe";
+      const url = "http://localhost:5000/auth/CreateMyRecipe";
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -31,11 +33,26 @@ const MyRecipe = () => {
         body: JSON.stringify(dish),
       });
       const result = await response.json();
-      console.log(response);
+      //   console.log(response);
 
       console.log(result);
-    } catch (error) {}
-    console.log("saved");
+
+      const { success, message, error } = result;
+      if (success) {
+        handleSuccess(message);
+        setTimeout(() => {
+          navigate("/myRecipePage");
+        }, 1200);
+      } else if (error) {
+        const details = error?.details[0].message;
+        handleFailure(details);
+      } else if (!success) {
+        handleFailure(message);
+      }
+    } catch (error) {
+      console.log(error);
+      handleFailure(error);
+    }
   };
   return (
     <>
@@ -43,7 +60,12 @@ const MyRecipe = () => {
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           Create Recipe
         </h2>
-        <form className="space-y-6" method="post" onSubmit={handleSubmit}>
+        <form
+          className="space-y-6"
+          method="post"
+          action="#"
+          onSubmit={handleSubmit}
+        >
           {/* Title */}
           <div>
             <label
@@ -169,4 +191,4 @@ const MyRecipe = () => {
   );
 };
 
-export default MyRecipe;
+export default CreateRecipe;

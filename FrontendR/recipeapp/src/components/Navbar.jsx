@@ -54,10 +54,10 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              to="/recipes"
+              to="/myRecipePage"
               className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
             >
-              More Recipe
+              View my Recipes
             </Link>
             <Link
               to="/contact"
@@ -104,14 +104,9 @@ const Navbar = () => {
               >
                 Home
               </Link>
+
               <Link
-                to="/about"
-                className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
-              >
-                About
-              </Link>
-              <Link
-                to="/recipes"
+                to="/myRecipe"
                 className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
               >
                 More Recipe

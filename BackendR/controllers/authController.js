@@ -60,10 +60,10 @@ const login = async (req, res) => {
 
 const myRecipe = async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
 
     const { title, ingredients, instructions, category, image } = req.body;
-    console.log(title, ingredients, instructions, category, image);
+    // console.log(title, ingredients, instructions, category, image);
     const newDish = new RecipeModel({
       title,
       ingredients,
