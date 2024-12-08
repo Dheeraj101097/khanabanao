@@ -9,6 +9,8 @@ const RecipeModel = require("../model/myRecipe");
 // Middleware for parsing JSON requests
 
 const router = require("express").Router();
+const bodyParser = require("body-parser");
+router.use(bodyParser.json());
 
 // Define routes
 
@@ -23,7 +25,44 @@ router.get("/myRecipePage", async (req, res) => {
   res.send(recipedata);
 });
 
-router.delete("/myrecipePage/:ID", async (req, res) => {
+// get on id
+
+router.get("/myRecipePage/:ID", async (req, res) => {
+  const { ID } = req.params;
+  try {
+    const recipe = await RecipeModel.findById(ID);
+    if (recipe) {
+      res.json(recipe);
+    } else {
+      res.status(404).json({ success: false, error: "Recipe not found." });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Failed to fetch recipe." });
+  }
+});
+
+// update edit
+
+router.put("/myRecipePage/:ID", async (req, res) => {
+  const { ID } = req.params;
+  // console.log(ID);
+  try {
+    const updatedRecipe = await RecipeModel.updateOne({ _id: ID }, req.body);
+    // console.log(updatedRecipe);
+    if (updatedRecipe.matchedCount > 0) {
+      res.json({ success: true, message: "Recipe updated successfully!" });
+    } else {
+      res.status(404).json({ success: false, error: "Recipe not found." });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Failed to update recipe." });
+  }
+});
+
+//Delete
+router.delete("/myRecipePage/:ID", async (req, res) => {
   const { ID } = req.params; //see this if only id i need then write {ID}=r.parms gives with {} // const id=req.params.id gives direct id value (case sensitive)
   try {
     const deletedRecipe = await RecipeModel.findByIdAndDelete(ID);

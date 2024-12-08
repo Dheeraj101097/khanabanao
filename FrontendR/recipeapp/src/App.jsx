@@ -7,6 +7,7 @@ import RecipeDetails from "./pages/RecipeDetails";
 import RefreshHandler from "./RefreshHandler";
 import CreateRecipe from "./pages/CreateRecipe";
 import MyRecipePage from "./pages/MyRecipePage";
+import EditMyRecipe from "./pages/EditMyRecipe";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,6 +32,10 @@ function App() {
           element={PrivateRoute(<CreateRecipe />)}
         />
         <Route path="/myRecipePage" element={PrivateRoute(<MyRecipePage />)} />
+        <Route
+          path="/EditMyRecipe/:id"
+          element={PrivateRoute(<EditMyRecipe />)}
+        />
       </Routes>
     </>
   );

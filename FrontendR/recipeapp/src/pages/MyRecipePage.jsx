@@ -30,13 +30,16 @@ const MyRecipePage = () => {
 
   return (
     <>
-      <div>
+      <div className="flex flex-col items-center justify-center">
         <h1 className="flex flex-row items-center justify-center">
-          My Recipe Page, welcome {loggedInUser}
+          Hi !.. Chef {loggedInUser}
         </h1>
-        <button className=" text-cyan-400 flex flex-row items-center justify-center ml-96">
-          <Link to="/CreateMyRecipe">Write New Recipe</Link>
-        </button>
+        <div className=" m-4 ">
+          Came across new Recipe Write and save here to cook later{" "}
+          <Link className="text-cyan-400 " to="/CreateMyRecipe">
+            Write Here{" "}
+          </Link>
+        </div>
         <h1 className="flex flex-row items-center justify-center text-4xl pt-10">
           My Saved Recipe
         </h1>

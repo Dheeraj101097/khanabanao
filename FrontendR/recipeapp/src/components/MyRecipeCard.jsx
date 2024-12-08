@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
   const [reload, setReload] = useState(0);
+  const dish = myDish;
   const handleDelete = async (ID) => {
     const url = `http://localhost:5000/auth/myRecipePage/${ID}`;
     const response = await fetch(url, {
@@ -19,6 +21,16 @@ const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
       console.log(result.error);
     }
   };
+
+  // const handleEditClick = async (ID) => {
+  //   const url = `http://localhost:5000/auth/myRecipePage/${ID}`;
+  //   const response = await fetch(url, {
+  //     method: "PUT",
+  //     headers: { "content-type": "application/json" },
+  //     body: JSON.stringify(dish),
+  //   });
+  //   console.log("edit clicked");
+  // };
 
   return (
     <>
@@ -48,7 +60,7 @@ const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
               View
             </button>
             <button className=" bg-[#0460ED] text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition mr-2">
-              Edit
+              <Link to={`/EditMyRecipe/${myDish._id}`}>Edit</Link>
             </button>
             <button
               className="bg-[#F00808] text-white px-3 py-1 rounded-lg hover:bg-red-900 transition"
