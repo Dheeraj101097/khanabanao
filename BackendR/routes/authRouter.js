@@ -1,4 +1,9 @@
-const { signup, login, myRecipe } = require("../controllers/authController");
+const {
+  signup,
+  login,
+  myRecipe,
+  authenticatedUser,
+} = require("../controllers/authController");
 const {
   loginValidation,
   signupValidation,
@@ -22,7 +27,7 @@ router.post("/CreateMyRecipe", recipeValidation, myRecipe);
 router.get("/myRecipePage", async (req, res) => {
   const recipedata = await RecipeModel.find();
   // console.log("displaying all recipe here", recipedata);
-  res.send(recipedata);
+  res.send(recipedata); //check this if error comes
 });
 
 // get on id
@@ -30,7 +35,8 @@ router.get("/myRecipePage", async (req, res) => {
 router.get("/myRecipePage/:ID", async (req, res) => {
   const { ID } = req.params;
   try {
-    const recipe = await RecipeModel.findById(ID);
+    const recipe = await RecipeModel.findOne({ _id: ID });
+    // , userId: req.user.id
     if (recipe) {
       res.json(recipe);
     } else {
@@ -48,7 +54,10 @@ router.put("/myRecipePage/:ID", async (req, res) => {
   const { ID } = req.params;
   // console.log(ID);
   try {
-    const updatedRecipe = await RecipeModel.updateOne({ _id: ID }, req.body);
+    const updatedRecipe = await RecipeModel.updateOne(
+      { _id: ID, userId: req.user.id }, //check this
+      req.body
+    );
     // console.log(updatedRecipe);
     if (updatedRecipe.matchedCount > 0) {
       res.json({ success: true, message: "Recipe updated successfully!" });
@@ -79,7 +88,7 @@ router.delete("/myRecipePage/:ID", async (req, res) => {
 });
 
 // Apply middleware to all routes
-//
+
 // Router.use(express.json());
 // app.use("/api", router);  auto genrated
 

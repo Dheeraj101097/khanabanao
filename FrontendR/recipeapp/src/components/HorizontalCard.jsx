@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const HorizontalCard = ({ dish }) => {
   if (!dish) return null;
-  // console.log(dish);
 
   const navigate = useNavigate({ dish });
 
@@ -39,11 +38,11 @@ const HorizontalCard = ({ dish }) => {
           <strong>Area:</strong> {dish.strArea}
         </Typography>
         <Typography variant="h5" color="blue-gray" className="mb-2">
-          <strong>Category:</strong>
-          {dish.strCategory}
+          <strong>Category:</strong> {dish.strCategory}
         </Typography>
         <Typography color="gray" className="mb-8 font-normal">
-          Instructions :{dish.strInstructions.slice(0, 150)}...
+          <h2 className="text-black">Instructions :-</h2>
+          {dish.strInstructions.slice(0, 150)}...
         </Typography>
         <a className="inline-block">
           <Button
@@ -68,7 +67,7 @@ const HorizontalCard = ({ dish }) => {
             </svg>
           </Button>
         </a>
-        <a href={dish.strYoutube}>
+        <a className="ml-2" href={dish.strYoutube}>
           <Button>Watch Video</Button>
         </a>
       </CardBody>

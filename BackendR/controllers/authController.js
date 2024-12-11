@@ -56,7 +56,7 @@ const login = async (req, res) => {
   });
 };
 
-//
+//controller
 
 const myRecipe = async (req, res) => {
   try {
@@ -70,6 +70,7 @@ const myRecipe = async (req, res) => {
       instructions,
       category,
       image,
+      userId: req.user.id, // Add the logged-in user's ID added newly for respective id
     });
     await newDish.save();
     res.status(200).json({ message: "Dish saved successfully", success: true });
@@ -78,5 +79,25 @@ const myRecipe = async (req, res) => {
     res.status(500).json({ message: "Error saving dish", success: false });
   }
 };
+
+// authenticated user
+
+// const authenticatedUser = (req, res, next) => {
+//   const token = req.header("Authorization")?.replace("Bearer ", "");
+//   if (!token) {
+//     return res.status(401).json({
+//       message: "Token not provided authentication failed",
+//       success: false,
+//     });
+//   }
+
+//   try {
+//     const decodeUser = jwt.verify(token, process.env.JWT_SECRET);
+//     req.user = { id: decodeUser.id };
+//   } catch (error) {
+//     console.log(error, "error decoding jwt token authentication");
+//     res.status(401).json({ message: "Invalid token." });
+//   }
+// };
 
 module.exports = { signup, login, myRecipe };

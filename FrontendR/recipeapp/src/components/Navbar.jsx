@@ -24,48 +24,50 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="justify-center items-center flex flex-col">
-        <nav className="h-20 max-w-7xl   flex flex-row justify-evenly items-center ">
+      <div className="justify-center  items-center flex flex-col">
+        <nav className="h-20 w-full bg-[#2D2D2A] flex flex-row justify-evenly items-center ">
           <div className="h-15  flex flex-row justify-center items-center  p-2 mr-20">
             <img
               className="rounded-[50%] p-1 h-16 w-16"
               src="/src/assets/nav_logo.png"
             />
-            <h2 className="m-1 px-1 py-[1em] text-white">Khana</h2>
+            <h2 className="m-1 px-1 py-[1em] text-white">Recipe App</h2>
           </div>
 
           <div className="hidden md:flex space-x-4">
             <Link
               to="/login"
-              className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+              className="text-black bg-[#20FC8F] hover:bg-[#03DD70] px-4 py-2 rounded-lg"
             >
+              {/* bg-[#FFD972] */}
               <button onClick={handleLogout}>Logout</button>
             </Link>
             <Link
               to="/home"
-              className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+              className="text-black bg-[#20FC8F] hover:bg-[#03DD70] px-4 py-2 rounded-lg"
             >
               Home
             </Link>
             <Link
-              to="/about"
-              className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
-            >
-              About
-            </Link>
-            <Link
               to="/myRecipePage"
-              className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+              className="text-black bg-[#20FC8F] hover:bg-[#03DD70] px-4 py-2 rounded-lg"
             >
               View my Recipes
             </Link>
             <Link
-              to="/contact"
-              className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+              to="/about"
+              className="text-black bg-[#20FC8F] hover:bg-[#03DD70] px-4 py-2 rounded-lg"
             >
-              Contact Us
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className="text-black bg-[#20FC8F] hover:bg-[#03DD70] px-4 py-2 rounded-lg"
+            >
+              Contact Me
             </Link>
           </div>
+
           {/*  */}
           <button
             className="md:hidden text-white focus:outline-none"
@@ -121,9 +123,12 @@ const Navbar = () => {
           )}
         </nav>
 
-        <div className="">
+        <div className="mt-6">
           <h1 className="font-medium text-4xl text-red-600">
-            Welcome Chef ! .. {loggedInUser}
+            Welcome Chef ! ..{" "}
+            {loggedInUser
+              ? loggedInUser.replace(/^./, (char) => char.toUpperCase())
+              : "Guest"}
           </h1>
         </div>
       </div>

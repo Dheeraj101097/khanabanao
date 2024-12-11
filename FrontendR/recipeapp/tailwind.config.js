@@ -21,3 +21,18 @@ module.exports = withMT({
   },
   plugins: [],
 });
+
+// Include this in your Tailwind configuration if necessary
+// module.exports = {
+//   theme: {
+//     extend: {
+//       colors: {
+//         gray: {
+//           900: "#1A202C",
+//           800: "#2D3748",
+//           300: "#E2E8F0",
+//         },
+//       },
+//     },
+//   },
+// };

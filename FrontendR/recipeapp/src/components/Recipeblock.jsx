@@ -44,15 +44,15 @@ const Recipe = () => {
     <>
       <div className="h-15  flex flex-row justify-center items-center p-3 m-2">
         <input
-          className="h-10 w-60 rounded-xl ml-20 mr-2"
+          className="h-10 w-60 rounded-xl ml-20 mr-2 content-center p-3 border-solid border-orange-200 border-2 outline-none focus:border-deep-orange-400 "
           type="text"
-          placeholder="Search item ..."
+          placeholder="Enter item.."
           onChange={handleName}
           value={dish}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()} // Trigger search on Enter key
         />
         <CiSearch
-          className="bg-white mr-20 p-1 h-10 w-8 rounded-r-xl"
+          className="bg-white mr-20 p-1 h-10 w-8 rounded-r-xl cursor-pointer hover:text-red-500"
           type="submit"
           onClick={handleSubmit}
         />

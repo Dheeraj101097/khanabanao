@@ -15,7 +15,7 @@ const Card = ({ dish }) => {
   };
 
   return (
-    <div className="max-w-60 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-6">
+    <div className="max-w-60 bg-white border border-gray-200 rounded-lg shadow transition-transform transform hover:scale-105 hover:bg-opacity-10  dark:bg-gray-800 dark:border-gray-700 m-6 hover:bg-gradient-to-tl hover:from-yellow-100  hover:to-amber-300  ">
       <a href={dish.strYoutube}>
         <img className="rounded-[50%] px-4 pt-4 " src={dish.strMealThumb} />
       </a>
@@ -33,7 +33,7 @@ const Card = ({ dish }) => {
 
         <a
           href={dish.strYoutube}
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#51344D] rounded-lg hover:bg-[#a06a97] "
         >
           Watch video
           <svg
