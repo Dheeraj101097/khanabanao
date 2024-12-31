@@ -55,7 +55,7 @@ router.put("/myRecipePage/:ID", async (req, res) => {
   // console.log(ID);
   try {
     const updatedRecipe = await RecipeModel.updateOne(
-      { _id: ID, userId: req.user.id }, //check this
+      { _id: ID }, //check this userId: req.user.id
       req.body
     );
     // console.log(updatedRecipe);
