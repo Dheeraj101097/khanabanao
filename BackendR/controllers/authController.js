@@ -70,7 +70,7 @@ const myRecipe = async (req, res) => {
       instructions,
       category,
       image,
-      userId: req.user.id, // Add the logged-in user's ID added newly for respective id
+      // userId: req.user.id, // Add the logged-in user's ID added newly for respective id
     });
     await newDish.save();
     res.status(200).json({ message: "Dish saved successfully", success: true });
