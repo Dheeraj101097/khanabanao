@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className="h-15  flex flex-row justify-center items-center  p-2 mr-20">
             <img
               className="rounded-[50%] p-1 h-16 w-16"
-              src="/src/assets/nav_logo.png"
+              src="https://img.freepik.com/free-vector/detailed-chef-logo-template_23-2148978453.jpg?ga=GA1.1.1340196312.1735653782&semt=ais_hybrid"
             />
             <h2 className="m-1 px-1 py-[1em] text-white">Recipe App</h2>
           </div>
