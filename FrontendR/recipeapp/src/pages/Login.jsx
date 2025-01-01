@@ -125,7 +125,7 @@ function Login() {
             <span>
               Don't have an account ?{" "}
               <Link
-                className="text-white hover:underline hover:text-cyan-300"
+                className="text-blue hover:underline hover:text-cyan-300"
                 to="/signup"
               >
                 Signup
@@ -133,7 +133,7 @@ function Login() {
             </span>
           </div>
         </form>
-        <ToastContainer
+{/*         <ToastContainer
           position="top-left"
           autoClose={5000}
           hideProgressBar={false}
@@ -145,7 +145,7 @@ function Login() {
           pauseOnHover
           theme="light"
           transition:Bounce
-        />
+        /> */}
       </div>
     </div>
   );
