@@ -13,7 +13,7 @@ const MyRecipePage = () => {
   // }
   const MyRecipeData = async () => {
     try {
-      const res = await fetch("http://localhost:5000/auth/myRecipePage");
+      const res = await fetch("https://khanabanao-backendr.onrender.com/auth/myRecipePage");
       const data = await res.json();
 
       setSavedDish(data);

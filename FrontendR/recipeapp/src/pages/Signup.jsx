@@ -33,7 +33,7 @@ function Signup() {
     //do try catch if name email pass entered
 
     try {
-      const url = "http://localhost:5000/auth/signup";
+      const url = "https://khanabanao-backendr.onrender.com/auth/signup";
 
       const response = await fetch(url, {
         method: "POST",
@@ -132,7 +132,7 @@ function Signup() {
             <span>
               Already have an account ?{" "}
               <Link
-                className="text-white hover:underline hover:text-cyan-400"
+                className="text-blue hover:underline hover:text-cyan-400"
                 to="/login"
               >
                 Login
@@ -140,7 +140,7 @@ function Signup() {
             </span>
           </div>
         </form>
-        <ToastContainer
+{/*         <ToastContainer
           position="top-right"
           autoClose={5000}
           hideProgressBar={false}
@@ -152,7 +152,7 @@ function Signup() {
           pauseOnHover
           theme="colored"
           transition:Zoom
-        />
+        /> */}
       </div>
     </div>
     // className="w-full bg-indigo-600 text-white p-2 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-6"
