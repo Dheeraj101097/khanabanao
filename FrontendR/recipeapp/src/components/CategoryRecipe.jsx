@@ -30,15 +30,17 @@ const CategoryRecipe = () => {
   return (
     <>
       <div className="flex flex-col items-center">
-        <h1>Categories of food</h1>
-        <div className="flex flex-wrap justify-center gap-6 p-6 m-3 ">
+        <h1 className="mt-10 text-3xl bg-amber-100 p-3 m-1 rounded-lg">Categories of food</h1>
+        <div className="flex flex-wrap justify-center gap-6 p-6 m-3 " >
+        {/*    grid grid-cols-4 gap-4*/}
           {Dataofcategory.map((category) => (
             <div
               key={category.idCategory}
               className=" max-w-xs w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 bg-gradient-to-tr from-white via-red-100  to-red-400 text-black m-2 "
               onClick={() => openModal(category)}
             >
-              <div className="flex flex-col items-center">
+              <div className=" flex flex-col items-center ">
+                {/* grid grid-cols-4 gap-4 */}
                 <img
                   src={category.strCategoryThumb}
                   alt={category.strCategory}

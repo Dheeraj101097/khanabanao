@@ -99,31 +99,31 @@ const Navbar = () => {
           </button>
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="md:hidden flex flex-col space-y-4 mt-4">
+            <div className="md:hidden flex flex-col space-y-0 mt-20">
               <Link
                 to="/home"
-                className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+                className="text-black bg-yellow-100 px-4 py-2 "
               >
                 Home
               </Link>
 
               <Link
-                to="/myRecipe"
-                className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+                to="/myRecipePage"
+                className="text-black bg-yellow-100 px-4 py-2 "
               >
-                More Recipe
+                View Saved Recipes
               </Link>
               <Link
-                to="/contact"
-                className="text-black bg-yellow-100 px-4 py-2 rounded-lg"
+                to="/login"
+                className="text-black bg-yellow-100 px-16 py-2 "
               >
-                Contact Us
+                <button onClick={handleLogout}>Logout</button>
               </Link>
             </div>
           )}
         </nav>
 
-        <div className="mt-6">
+        <div className="mt-4 md:mt-10 sm:mt-10">
           <h1 className="font-medium text-4xl text-red-600">
             Welcome Chef ! ..{" "}
             {loggedInUser

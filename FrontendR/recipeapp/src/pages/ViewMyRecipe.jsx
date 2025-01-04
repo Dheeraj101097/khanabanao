@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ViewMyRecipe = () => {
   let ID = useParams();
@@ -40,12 +40,15 @@ const ViewMyRecipe = () => {
   return (
     <div className="flex flex-col md:flex-row bg-gray-100 p-8 rounded-lg shadow-lg">
       {/* Left Section - Image */}
-      <div className="md:w-1/3 flex justify-center items-center mb-6 md:mb-0">
+      <div className="md:w-1/3 flex flex-col justify-center items-center mb-6 md:mb-0">
         <img
           src={dish.image}
           alt={dish.title}
           className="w-full h-auto rounded-lg shadow-md"
         />
+        <Link to="/myRecipePage">
+          <button className="text-black bg-[#20FC8F] hover:bg-[#ffa3b1] m-5 rounded-lg border-black p-2  ">Back to saved recipes</button>
+        </Link>
       </div>
 
       {/* Right Section - Details */}

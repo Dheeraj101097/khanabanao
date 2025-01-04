@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MyRecipeCard from "../components/MyRecipeCard";
+import Navbar from "../components/Navbar";
 // here this page show all saved one and button for delte and write news once
 const MyRecipePage = () => {
   // const savedRecipe = useSelector((state) => state.recipe.savedRecipe); check what this does
@@ -32,19 +33,23 @@ const MyRecipePage = () => {
 
   return (
     <>
+    <Navbar/>
       <div className="flex flex-col items-center justify-center">
-        <h1 className="flex flex-row items-center justify-center">
+        {/* <h1 className="flex flex-row items-center justify-center">
           Hi !.. Chef {loggedInUser}
-        </h1>
+        </h1> */}
         <div className=" m-4 ">
           Came across new Recipe Write and save here to cook later{" "}
           <Link className="text-cyan-400 " to="/CreateMyRecipe">
             Write Here{" "}
           </Link>
         </div>
-        <h1 className="flex flex-row items-center justify-center text-4xl pt-10">
-          My Saved Recipe
-        </h1>
+        <div>
+          <h1 className="flex flex-row items-center justify-center text-4xl p-2 rounded-md bg-orange-100">
+            My Saved Recipes
+          </h1>
+        </div>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 m-4 sm:m-6 lg:m-8 px-4 sm:px-8 lg:px-20 pt-4 sm:pt-6 lg:pt-8 ">
           {savedDish.length > 0 ? (
             savedDish.map((elem, index) => (
@@ -57,7 +62,8 @@ const MyRecipePage = () => {
               //send refresh to card explict refresh to avoid loop
             ))
           ) : (
-            <p className="text-center text-gray-500">no saved save now</p>
+            <div className="flex items-center justify-center"><p className="text-center text-gray-500 ">Loading ...</p></div>
+            
           )}
         </div>
       </div>

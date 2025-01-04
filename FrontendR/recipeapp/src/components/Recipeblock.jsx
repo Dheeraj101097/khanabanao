@@ -62,7 +62,7 @@ const Recipe = () => {
         {Meals.length > 0 ? (
           Meals.map((elem) => <Card key={elem.idMeal} dish={elem} />)
         ) : (
-          <p>Enter dish name</p>
+          <p>Enter valid dish name</p>
         )}
       </div>
       {/* rem here () sends with a return {}->whereas this send without return if we write return then it sends */}
