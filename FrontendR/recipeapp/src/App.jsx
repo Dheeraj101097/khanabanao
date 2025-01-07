@@ -27,7 +27,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/home" element={PrivateRoute(<Home />)} />
         <Route path="/" element={PrivateRoute(<Home />)} />
-        <Route path="/login" element={<Login />} />
+        <Route path="https://khanabanaofrontendrrecipeapp.onrender.com/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/home" element={<Navigate to="/" />} /> */}
