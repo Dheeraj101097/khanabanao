@@ -100,10 +100,7 @@ const Navbar = () => {
           {/* Mobile Menu */}
           {isOpen && (
             <div className="md:hidden flex flex-col space-y-0 mt-20">
-              <Link
-                to="/home"
-                className="text-black bg-yellow-100 px-4 py-2 "
-              >
+              <Link to="/home" className="text-black bg-yellow-100 px-4 py-2 ">
                 Home
               </Link>
 
@@ -112,6 +109,9 @@ const Navbar = () => {
                 className="text-black bg-yellow-100 px-4 py-2 "
               >
                 View Saved Recipes
+              </Link>
+              <Link to="/about" className="text-black bg-yellow-100 px-4 py-2">
+                About
               </Link>
               <Link
                 to="/login"
