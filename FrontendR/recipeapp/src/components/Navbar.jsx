@@ -119,6 +119,12 @@ const Navbar = () => {
               >
                 <button onClick={handleLogout}>Logout</button>
               </Link>
+              <Link
+              to="/about"
+              className="text-black bg-yellow-100 px-16 py-2"
+            >
+              About
+            </Link>
             </div>
           )}
         </nav>
