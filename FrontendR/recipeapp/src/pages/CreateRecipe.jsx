@@ -24,7 +24,7 @@ const CreateRecipe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "https://khanabanao-backendr.onrender.com/auth/CreateMyRecipe";
+      const url = "http://localhost:5000/auth/CreateMyRecipe";
       const response = await fetch(url, {
         method: "POST",
         headers: {

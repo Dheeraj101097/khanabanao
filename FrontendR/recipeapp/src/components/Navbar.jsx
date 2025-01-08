@@ -99,8 +99,11 @@ const Navbar = () => {
           </button>
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="md:hidden flex flex-col space-y-0 mt-20">
-              <Link to="/home" className="text-black bg-yellow-100 px-4 py-2 ">
+            <div className="md:hidden flex flex-col  space-y-0 mt-32 z-20 ">
+              <Link
+                to="/home"
+                className="text-black rounded-t-2xl bg-yellow-100 px-4 py-2 "
+              >
                 Home
               </Link>
 
@@ -108,23 +111,18 @@ const Navbar = () => {
                 to="/myRecipePage"
                 className="text-black bg-yellow-100 px-4 py-2 "
               >
-                View Saved Recipes
+                Saved Recipes
               </Link>
-              <Link to="/about" className="text-black bg-yellow-100 px-4 py-2">
-                About
-              </Link>
-              <Link
-                to="/login"
-                className="text-black bg-yellow-100 px-16 py-2 "
-              >
+
+              <Link to="/login" className="text-black bg-yellow-100 px-4 py-2 ">
                 <button onClick={handleLogout}>Logout</button>
               </Link>
               <Link
-              to="/about"
-              className="text-black bg-yellow-100 px-16 py-2"
-            >
-              About
-            </Link>
+                to="/about"
+                className="text-black rounded-b-2xl bg-yellow-100 px-4 py-2"
+              >
+                About
+              </Link>
             </div>
           )}
         </nav>

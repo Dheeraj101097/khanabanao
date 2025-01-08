@@ -34,7 +34,7 @@ const EditMyRecipe = () => {
   //   console.log(ID.id);
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://khanabanao-backendr.onrender.com/auth/myRecipePage/${ID.id}`;
+      const url = `http://localhost:5000/auth/myRecipePage/${ID.id}`;
       try {
         const response = await fetch(url, {
           method: "GET",

@@ -15,7 +15,7 @@ const ViewMyRecipe = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://khanabanao-backendr.onrender.com/auth/myRecipePage/${ID.id}`;
+      const url = `http://localhost:5000/auth/myRecipePage/${ID.id}`;
       try {
         const response = await fetch(url, {
           method: "GET",
@@ -47,7 +47,9 @@ const ViewMyRecipe = () => {
           className="w-full h-auto rounded-lg shadow-md"
         />
         <Link to="/myRecipePage">
-          <button className="text-black bg-[#20FC8F] hover:bg-[#ffa3b1] m-5 rounded-lg border-black p-2  ">Back to saved recipes</button>
+          <button className="text-black bg-[#20FC8F] hover:bg-[#ffa3b1] m-5 rounded-lg border-black p-2  ">
+            Back to saved recipes
+          </button>
         </Link>
       </div>
 

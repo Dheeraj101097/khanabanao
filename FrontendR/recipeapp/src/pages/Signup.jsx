@@ -33,7 +33,7 @@ function Signup() {
     //do try catch if name email pass entered
 
     try {
-      const url = "https://khanabanao-backendr.onrender.com/auth/signup";
+      const url = "http://localhost:5000/auth/signup";
 
       const response = await fetch(url, {
         method: "POST",
@@ -140,7 +140,7 @@ function Signup() {
             </span>
           </div>
         </form>
-{/*         <ToastContainer
+        {/*         <ToastContainer
           position="top-right"
           autoClose={5000}
           hideProgressBar={false}

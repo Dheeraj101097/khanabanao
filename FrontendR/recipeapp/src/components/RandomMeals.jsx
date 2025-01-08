@@ -30,15 +30,15 @@ const RandomMeals = () => {
   }, []);
 
   return (
-  <>
-  <div className="flex items-center justify-center min-h-screen  px-4">
-    {meal ? (
-      <HorizontalCard dish={meal} />
-    ) : (
-      <p className="text-lg text-gray-600">Loading...</p>
-    )}
-  </div>
-  </>
+    <>
+      <div className="flex items-center justify-center m-5  px-4">
+        {meal ? (
+          <HorizontalCard dish={meal} />
+        ) : (
+          <p className="text-lg text-gray-600">Loading...</p>
+        )}
+      </div>
+    </>
   );
 };
 

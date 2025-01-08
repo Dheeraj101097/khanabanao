@@ -27,7 +27,7 @@ function Login() {
     }
     //do try catch if name email pass entered
     try {
-      const url = "https://khanabanao-backendr.onrender.com/auth/login";
+      const url = "http://localhost:5000/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -59,7 +59,7 @@ function Login() {
   };
   return (
     // bg-green-100 background-image: linear-gradient(to right, var(--tw-gradient-stops))
-    <div className="  flex items-center justify-center min-h-screen bg-background-pattern1 bg-cover h-screen">
+    <div className=" flex items-center justify-center min-h-screen bg-background-pattern1 bg-cover h-screen">
       <div className=" bg-white/25 backdrop-blur-sm border-1 border-blue-950 drop-shadow-lg  flex flex-col items-center justify-center h-fit px-10 py-6 rounded-2xl ">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Login
@@ -133,7 +133,7 @@ function Login() {
             </span>
           </div>
         </form>
-{/*         <ToastContainer
+        {/*         <ToastContainer
           position="top-left"
           autoClose={5000}
           hideProgressBar={false}

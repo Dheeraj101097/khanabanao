@@ -13,7 +13,7 @@ const MyRecipePage = () => {
   // }
   const MyRecipeData = async () => {
     try {
-      const res = await fetch("https://khanabanao-backendr.onrender.com/auth/myRecipePage");
+      const res = await fetch("http://localhost:5000/auth/myRecipePage");
       const data = await res.json();
 
       setSavedDish(data);
@@ -33,7 +33,7 @@ const MyRecipePage = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="flex flex-col items-center justify-center">
         {/* <h1 className="flex flex-row items-center justify-center">
           Hi !.. Chef {loggedInUser}
@@ -49,7 +49,7 @@ const MyRecipePage = () => {
             My Saved Recipes
           </h1>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 m-4 sm:m-6 lg:m-8 px-4 sm:px-8 lg:px-20 pt-4 sm:pt-6 lg:pt-8 ">
           {savedDish.length > 0 ? (
             savedDish.map((elem, index) => (
@@ -62,8 +62,9 @@ const MyRecipePage = () => {
               //send refresh to card explict refresh to avoid loop
             ))
           ) : (
-            <div className="flex items-center justify-center"><p className="text-center text-gray-500 ">Loading ...</p></div>
-            
+            <div className="flex items-center justify-center">
+              <p className="text-center text-gray-500 ">Loading ...</p>
+            </div>
           )}
         </div>
       </div>

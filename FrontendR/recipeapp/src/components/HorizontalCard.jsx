@@ -73,76 +73,75 @@ const HorizontalCard = ({ dish }) => {
     //   </CardBody>
     // </Card>
 
-    // 
+    //
 
-    <Card className="w-full max-w-[50rem] mx-auto my-10 flex flex-col lg:flex-row">
-  <CardHeader
-    shadow={false}
-    floated={false}
-    className="m-0 w-full lg:w-2/5 shrink-0 rounded-b-none lg:rounded-r-none"
-  >
-    <img src={dish.strMealThumb} className="h-full w-full object-cover" />
-  </CardHeader>
-  <CardBody className="p-4 lg:p-6">
-    <Typography
-      variant="h3"
-      color="gray"
-      className="mb-4 text-lg lg:text-2xl uppercase"
-    >
-      {dish.strMeal}
-    </Typography>
-    <Typography
-      variant="h5"
-      color="blue-gray"
-      className="mb-2 text-sm lg:text-lg"
-    >
-      <strong>Area:</strong> {dish.strArea}
-    </Typography>
-    <Typography
-      variant="h5"
-      color="blue-gray"
-      className="mb-2 text-sm lg:text-lg"
-    >
-      <strong>Category:</strong> {dish.strCategory}
-    </Typography>
-    <Typography
-      color="gray"
-      className="mb-8 text-sm lg:text-base font-normal"
-    >
-      <h2 className="text-black text-base lg:text-lg">Instructions :-</h2>
-      {dish.strInstructions.slice(0, 150)}...
-    </Typography>
-    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-      <a className="inline-block">
-        <Button
-          onClick={handleNavigate}
-          variant="text"
-          className="flex items-center gap-2 text-sm lg:text-base"
+    <Card className="w-full max-w-[50rem] mx-auto my-4 flex flex-col lg:flex-row">
+      <CardHeader
+        shadow={false}
+        floated={false}
+        className="m-0 w-full lg:w-2/5 shrink-0 rounded-b-none lg:rounded-r-none"
+      >
+        <img src={dish.strMealThumb} className="h-full w-full object-cover" />
+      </CardHeader>
+      <CardBody className="p-4 lg:p-6">
+        <Typography
+          variant="h3"
+          color="gray"
+          className="mb-4 text-lg lg:text-2xl uppercase"
         >
-          Learn More
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            className="h-4 w-4"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </Button>
-      </a>
-      <a className="ml-0 sm:ml-2" href={dish.strYoutube}>
-        <Button className="text-sm lg:text-base">Watch Video</Button>
-      </a>
-    </div>
-  </CardBody>
-</Card>
-
+          {dish.strMeal}
+        </Typography>
+        <Typography
+          variant="h5"
+          color="blue-gray"
+          className="mb-2 text-sm lg:text-lg"
+        >
+          <strong>Area:</strong> {dish.strArea}
+        </Typography>
+        <Typography
+          variant="h5"
+          color="blue-gray"
+          className="mb-2 text-sm lg:text-lg"
+        >
+          <strong>Category:</strong> {dish.strCategory}
+        </Typography>
+        <Typography
+          color="gray"
+          className="mb-8 text-sm lg:text-base font-normal"
+        >
+          <h2 className="text-black text-base lg:text-lg">Instructions :-</h2>
+          {dish.strInstructions.slice(0, 150)}...
+        </Typography>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <a className="inline-block">
+            <Button
+              onClick={handleNavigate}
+              variant="text"
+              className="flex items-center gap-2 text-sm lg:text-base"
+            >
+              Learn More
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                className="h-4 w-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </Button>
+          </a>
+          <a className="ml-0 sm:ml-2" href={dish.strYoutube}>
+            <Button className="text-sm lg:text-base">Watch Video</Button>
+          </a>
+        </div>
+      </CardBody>
+    </Card>
   );
 };
 
