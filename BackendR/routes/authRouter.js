@@ -1,3 +1,6 @@
+// ai
+const run = require("../geminiapi.js");
+//
 const {
   signup,
   login,
@@ -91,5 +94,20 @@ router.delete("/myRecipePage/:ID", async (req, res) => {
 
 // Router.use(express.json());
 // app.use("/api", router);  auto genrated
+
+// ai
+
+router.post("/prompt-post", async (req, res) => {
+  try {
+    const { prompt } = req.body;
+    // console.log(req.body, prompt);
+    const response = await run(prompt);
+    res.json(response);
+    // console.log(response);
+    // res.status(200).json({ message: "success" });
+  } catch (error) {
+    console.log("here backend error", error);
+  }
+});
 
 module.exports = router;
