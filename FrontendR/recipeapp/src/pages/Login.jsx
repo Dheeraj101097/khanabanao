@@ -27,7 +27,7 @@ function Login() {
     }
     //do try catch if name email pass entered
     try {
-      const url = "http://localhost:5000/auth/login";
+      const url = "https://khanabanao-backendr.onrender.com/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
