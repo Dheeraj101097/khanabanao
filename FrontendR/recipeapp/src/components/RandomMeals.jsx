@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import HorizontalCard from "./HorizontalCard";
+import { LoadingEffect2 } from "./LoadingEffect";
 
 const RandomMeals = () => {
   const [meal, setMeal] = useState(null);
@@ -31,12 +32,8 @@ const RandomMeals = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center m-5  px-4">
-        {meal ? (
-          <HorizontalCard dish={meal} />
-        ) : (
-          <p className="text-lg text-gray-600">Loading...</p>
-        )}
+      <div className="flex items-center justify-center mb-5 py-2 px-4">
+        {meal ? <HorizontalCard dish={meal} /> : <LoadingEffect2 />}
       </div>
     </>
   );

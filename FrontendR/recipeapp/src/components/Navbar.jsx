@@ -126,14 +126,15 @@ const Navbar = () => {
             </div>
           )}
         </nav>
-
-        <div className="mt-4 md:mt-10 sm:mt-10">
-          <h1 className="font-medium text-4xl text-red-600">
-            Welcome Chef ! ..{" "}
-            {loggedInUser
-              ? loggedInUser.replace(/^./, (char) => char.toUpperCase())
-              : "Guest"}
-          </h1>
+        <div className=" min-w-full pb-6">
+          <div className="mt-4 md:mt-10 sm:mt-10 text-center ">
+            <h1 className="font-medium text-4xl text-red-600">
+              Welcome Chef ! ..{" "}
+              {loggedInUser
+                ? loggedInUser.replace(/^./, (char) => char.toUpperCase())
+                : "Guest"}
+            </h1>
+          </div>
         </div>
       </div>
     </>

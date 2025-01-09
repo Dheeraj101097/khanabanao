@@ -33,9 +33,9 @@ const CreateRecipe = () => {
         body: JSON.stringify(dish),
       });
       const result = await response.json();
-      console.log(response);
+      // console.log(response);
 
-      console.log(result);
+      // console.log(result);
 
       const { success, message, error } = result;
       if (success) {

@@ -3,10 +3,22 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // backgroundImage: {
-      //   "homebkg-pattern": "url('/src/assets/bkg.png')",
-      //   "footer-texture": "url('/img/footer-texture.png')",
-      // },
+      keyframes: {
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        path: {
+          "0%, 34%, 71%, 100%": { transform: "scale(1)" },
+          "17%": { transform: "scale(1.2)" },
+          "49%": { transform: "scale(1.2)" },
+          "83%": { transform: "scale(1.2)" },
+        },
+      },
+      animation: {
+        spin: "spin 2s linear infinite",
+        path: "path 1.5s linear 0.5s infinite",
+      },
     },
   },
   plugins: [],
@@ -22,6 +34,16 @@ module.exports = withMT({
   plugins: [],
 });
 
+// const withMT = require("@material-tailwind/react/utils/withMT");
+
+// module.exports = withMT({
+//   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+// });
+
 // Include this in your Tailwind configuration if necessary
 // module.exports = {
 //   theme: {
@@ -32,6 +54,30 @@ module.exports = withMT({
 //           800: "#2D3748",
 //           300: "#E2E8F0",
 //         },
+//       },
+//     },
+//   },
+// };
+
+// tailwind.config.js
+// module.exports = {
+//   theme: {
+//     extend: {
+//       keyframes: {
+//         spin: {
+//           "0%": { transform: "rotate(0deg)" },
+//           "100%": { transform: "rotate(360deg)" },
+//         },
+//         path: {
+//           "0%, 34%, 71%, 100%": { transform: "scale(1)" },
+//           "17%": { transform: "scale(1.2)" },
+//           "49%": { transform: "scale(1.2)" },
+//           "83%": { transform: "scale(1.2)" },
+//         },
+//       },
+//       animation: {
+//         spin: "spin 2s linear infinite",
+//         path: "path 1.5s linear 0.5s infinite",
 //       },
 //     },
 //   },

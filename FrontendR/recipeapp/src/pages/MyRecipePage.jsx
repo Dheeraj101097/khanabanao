@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MyRecipeCard from "../components/MyRecipeCard";
 import Navbar from "../components/Navbar";
+import { LoadingEffect, LoadingEffect2 } from "../components/LoadingEffect";
 // here this page show all saved one and button for delte and write news once
 const MyRecipePage = () => {
   // const savedRecipe = useSelector((state) => state.recipe.savedRecipe); check what this does
@@ -63,7 +64,9 @@ const MyRecipePage = () => {
             ))
           ) : (
             <div className="flex items-center justify-center">
-              <p className="text-center text-gray-500 ">Loading ...</p>
+              <div className="flex items-center justify-center">
+                <LoadingEffect />
+              </div>
             </div>
           )}
         </div>
