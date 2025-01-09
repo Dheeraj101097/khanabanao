@@ -7,12 +7,14 @@ import CategoryRecipe from "../components/CategoryRecipe";
 const Home = () => {
   return (
     <>
-      <Navbar />
-      <RandomMeals />
-      <Recipe />
-      <CategoryRecipe />
+      <div className="bg-gradient-to-tr from-[#F5F6F3] to-[#edfdf7]">
+        <Navbar />
+        <RandomMeals />
+        <Recipe />
+        <CategoryRecipe />
+      </div>
     </>
   );
 };
-
+// #ECF8FE
 export default Home;
