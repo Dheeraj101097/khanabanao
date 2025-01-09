@@ -20,7 +20,7 @@ const Recipe = () => {
   const handleaiSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/auth/prompt-post";
+      const url = "https://khanabanao-backendr.onrender.com/auth/prompt-post";
       console.log(prompt);
       const response = await fetch(url, {
         method: "POST",
