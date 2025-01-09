@@ -7,6 +7,88 @@ import { LoadingEffect4 } from "./LoadingEffect";
 import AiBlock from "./AiBlock";
 
 const Recipe = () => {
+  // ai part
+  const [prompt, setPrompt] = useState("");
+  const [results, setResults] = useState("");
+
+  const handleChange = (e) => {
+    const copysearchbox = e.target.value;
+    setPrompt(copysearchbox);
+    console.log(copysearchbox);
+  };
+
+  const handleaiSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:5000/auth/prompt-post";
+      console.log(prompt);
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      setResults(data);
+    } catch (error) {
+      console.log("frontend error: ", error);
+    }
+  };
+  // parsing result
+  const parsedResults = (content) => {
+    const lines = content
+      ? content.split("\n").filter((line) => line.trim() !== "")
+      : [];
+    const parsed = [];
+
+    lines.forEach((line) => {
+      if (line.startsWith("**") && line.endsWith("**")) {
+        parsed.push({ type: "title", text: line.replace(/\*\*/g, "") });
+      } else if (line.startsWith("*")) {
+        if (line.includes("**")) {
+          // Subheadings inside lists
+          const match = line.match(/\*\*(.*?)\*\*/); // Match content between **
+          if (match) {
+            parsed.push({
+              type: "list",
+              bold: match[1], // Text between **
+              text: line.replace(`**${match[1]}**`, "").trim(), // Remaining text after bold
+            });
+          } else {
+            // Regular list items without bold
+            parsed.push({
+              type: "list",
+              bold: null,
+              text: line.replace(/^\*\s*/, "").trim(),
+            });
+          }
+        } else {
+          parsed.push({ type: "list", text: line.replace(/^\*\s*/, "") });
+        }
+      } else {
+        if (line.includes("**")) {
+          // in paragraphs
+          parsed.push({
+            type: "subheading",
+            text: line
+              .replace(/\*\*/g, "")
+              .replace(/^\*\s*/, "")
+              .trim(),
+          });
+        } else {
+          parsed.push({ type: "paragraph", text: line });
+        }
+      }
+    });
+
+    return parsed;
+  };
+
+  const parsedContent = parsedResults(results);
+
   //
   const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 

@@ -33,7 +33,7 @@ function Signup() {
     //do try catch if name email pass entered
 
     try {
-      const url = "http://localhost:5000/auth/signup";
+      const url = "https://khanabanao-backendr.onrender.com/auth/signup";
 
       const response = await fetch(url, {
         method: "POST",
