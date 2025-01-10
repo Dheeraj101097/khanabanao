@@ -35,9 +35,9 @@ const AiBlock = () => {
       setResults(data);
     } catch (error) {
       console.log("frontend error: ", error);
-    } finally {
+    } 
       setLoadingAI(false); // AI loading state false make it
-    }
+    
   };
   // parsing result
   const parsedResults = (content) => {
