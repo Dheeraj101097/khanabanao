@@ -31,7 +31,7 @@ const Recipe = () => {
       });
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setResults(data);
     } catch (error) {
       console.log("frontend error: ", error);
