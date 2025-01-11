@@ -1,5 +1,5 @@
 const cors = require("cors");
-router.use(cors());
+
 // ai
 const run = require("../geminiapi.js");
 //
@@ -21,6 +21,7 @@ const RecipeModel = require("../model/myRecipe");
 const router = require("express").Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
+router.use(cors());
 
 // Define routes
 
