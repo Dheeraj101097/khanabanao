@@ -1,3 +1,5 @@
+const cors = require("cors");
+router.use(cors());
 // ai
 const run = require("../geminiapi.js");
 //
