@@ -20,7 +20,7 @@ const AiBlock = () => {
     e.preventDefault();
     setLoadingAI(true); // AI loading state
     try {
-      const url = "http://localhost:5000/auth/prompt-post";
+      const url = "https://khanabanao-backendr.onrender.com/auth/prompt-post";
       // console.log(prompt);
       const response = await fetch(url, {
         method: "POST",
@@ -35,9 +35,9 @@ const AiBlock = () => {
       setResults(data);
     } catch (error) {
       console.log("frontend error: ", error);
-    } finally {
+    } 
       setLoadingAI(false); // AI loading state false make it
-    }
+    
   };
   // parsing result
   const parsedResults = (content) => {
