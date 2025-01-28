@@ -14,7 +14,7 @@ function Login() {
     const copyLoginInfo = { ...loginInfo };
     copyLoginInfo[name] = value;
     setLoginInfo(copyLoginInfo);
-    console.log(name, value);
+    // console.log(name, value);
   };
   const navigate = useNavigate();
   const handleLogin = async (e) => {
@@ -27,7 +27,7 @@ function Login() {
     }
     //do try catch if name email pass entered
     try {
-      const url = "https://khanabanao-backendr.onrender.com/auth/login";
+      const url = "http://localhost:5000/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -36,13 +36,16 @@ function Login() {
         body: JSON.stringify(loginInfo),
       }); //diwali did
       const result = await response.json();
+      // console.log(result);
+
       // we add jwttoken and name check
-      const { success, message, jwtToken, name, error } = result;
+      const { success, message, jwtToken, name, error, userId } = result;
       if (success) {
         handleSuccess(message);
         // before going
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
+        localStorage.setItem("userId", userId);
         setTimeout(() => {
           navigate("/home");
         }, 1500);

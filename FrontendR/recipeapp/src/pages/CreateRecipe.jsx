@@ -11,20 +11,21 @@ const CreateRecipe = () => {
     instructions: "",
     category: "",
     image: "",
+    userId: localStorage.getItem("userId"), //to get logged in user id
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
     const copyDishData = { ...dish }; //not [...dish] check array obj
     copyDishData[name] = value;
     setDish(copyDishData);
-    console.log(name, value);
+    // console.log(name, value);
   };
   const navigate = useNavigate();
   //
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "https://khanabanao-backendr.onrender.com/auth/CreateMyRecipe";
+      const url = "http://localhost:5000/auth/CreateMyRecipe";
       const response = await fetch(url, {
         method: "POST",
         headers: {

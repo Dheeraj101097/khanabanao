@@ -15,7 +15,7 @@ function Signup() {
     const copySignupInfo = { ...signupInfo };
     copySignupInfo[name] = value;
     setSignupInfo(copySignupInfo);
-    console.log(name, value);
+    // console.log(name, value);
   };
   //   console.log("signupInfo", signupInfo);
 
@@ -33,7 +33,7 @@ function Signup() {
     //do try catch if name email pass entered
 
     try {
-      const url = "https://khanabanao-backendr.onrender.com/auth/signup";
+      const url = "http://localhost:5000/auth/signup";
 
       const response = await fetch(url, {
         method: "POST",

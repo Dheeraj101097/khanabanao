@@ -9,12 +9,18 @@ const MyRecipePage = () => {
   // const savedRecipe = useSelector((state) => state.recipe.savedRecipe); check what this does
   const [savedDish, setSavedDish] = useState([]);
   const [loggedInUser, setloggedInUser] = useState("");
-  // {
-  //   headers: { Authorization: `Bearer ${token}` },
-  // }
+
   const MyRecipeData = async () => {
     try {
-      const res = await fetch("https://khanabanao-backendr.onrender.com/auth/myRecipePage");
+      const userId = localStorage.getItem("userId");
+      const res = await fetch("http://localhost:5000/auth/myRecipePage", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          userId: userId,
+        },
+      });
+
       const data = await res.json();
 
       setSavedDish(data);
