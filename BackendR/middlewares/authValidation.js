@@ -12,6 +12,7 @@ const signupValidation = (req, res, next) => {
     //   .equal(Joi.ref("password"))
     //   .required()
     //   .messages({ "any.only": "Passwords do not match" }),
+    userId: Joi.string(),
   });
   const { error } = schema.validate(req.body);
   if (error) {
@@ -42,6 +43,8 @@ const recipeValidation = (req, res, next) => {
     instructions: Joi.string(), // Array of strings
     category: Joi.string(),
     image: Joi.string(),
+    userId: Joi.string(),
+    // // check this later, i'm assuming it's the id of the user who created the recipe
   });
   const { error } = schema.validate(req.body);
   if (error) {

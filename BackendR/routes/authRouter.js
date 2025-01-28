@@ -1,4 +1,6 @@
 // ai
+const cors = require("cors");
+
 const run = require("../geminiapi.js");
 //
 const {
@@ -19,6 +21,7 @@ const RecipeModel = require("../model/myRecipe");
 const router = require("express").Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
+router.use(cors());
 
 // Define routes
 
@@ -28,8 +31,8 @@ router.post("/signup", signupValidation, signup);
 router.post("/CreateMyRecipe", recipeValidation, myRecipe);
 
 router.get("/myRecipePage", async (req, res) => {
-  const recipedata = await RecipeModel.find();
-  // console.log("displaying all recipe here", recipedata);
+  const userId = req.headers["userid"];
+  const recipedata = await RecipeModel.find({ userId });
   res.send(recipedata); //check this if error comes
 });
 

@@ -12,11 +12,10 @@ const recipeSchema = new Schema(
     instructions: { type: String, required: true },
     category: { type: String, required: true },
     image: { type: String, required: true },
-    // userId: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "User",
-    //   required: true,
-    // },
+    userId: {
+      type: String,
+      required: true,
+    },
   }
   // { timestamps: true }
 );

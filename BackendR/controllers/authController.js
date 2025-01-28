@@ -2,15 +2,17 @@ const RecipeUserModel = require("../model/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const RecipeModel = require("../model/myRecipe");
+const { v4: uuidv4 } = require("uuid");
 
 const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    const userId = uuidv4();
     const recipeuser = await RecipeUserModel.findOne({ email });
     if (recipeuser) {
       return res.status(409).json({ message: "user exists", success: false });
     }
-    const newUser = new RecipeUserModel({ name, email, password });
+    const newUser = new RecipeUserModel({ name, email, password, userId });
 
     newUser.password = await bcrypt.hash(password, 10);
 
@@ -28,31 +30,32 @@ const login = async (req, res) => {
   const recipeuser = await RecipeUserModel.findOne({ email });
 
   if (!recipeuser) {
-    res
-      .status(200)
-      .json({ message: "login credentials wrong", success: false });
+    return res
+      .status(401)
+      .json({ message: "Invalid credentials", success: false });
   }
 
   const passwordCheck = await bcrypt.compare(password, recipeuser.password);
 
   if (!passwordCheck) {
     return res
-      .status(403)
+      .status(401)
       .json({ message: "username or password is wrong", success: false });
   }
 
   const jwtToken = jwt.sign(
-    { email: recipeuser.email, _id: recipeuser._id },
+    { email: recipeuser.email, _id: recipeuser._id, userId: recipeuser.userId },
     process.env.JWT_SECRET,
-    { expiresIn: "1h" }
-  );
+    { expiresIn: "30m" }
+  ); //see this
 
   res.status(200).json({
     message: "Login successful",
     success: true,
     jwtToken,
     name: recipeuser.name,
-    email,
+    email: recipeuser.email,
+    userId: recipeuser.userId,
   });
 };
 
@@ -63,6 +66,7 @@ const myRecipe = async (req, res) => {
     // console.log(req.body);
 
     const { title, ingredients, instructions, category, image } = req.body;
+    const userId = req.body.userId;
     // console.log(title, ingredients, instructions, category, image);
     const newDish = new RecipeModel({
       title,
@@ -70,7 +74,7 @@ const myRecipe = async (req, res) => {
       instructions,
       category,
       image,
-
+      userId,
     });
     await newDish.save();
     res.status(200).json({ message: "Dish saved successfully", success: true });
@@ -79,25 +83,5 @@ const myRecipe = async (req, res) => {
     res.status(500).json({ message: "Error saving dish", success: false });
   }
 };
-
-// authenticated user
-
-// const authenticatedUser = (req, res, next) => {
-//   const token = req.header("Authorization")?.replace("Bearer ", "");
-//   if (!token) {
-//     return res.status(401).json({
-//       message: "Token not provided authentication failed",
-//       success: false,
-//     });
-//   }
-
-//   try {
-//     const decodeUser = jwt.verify(token, process.env.JWT_SECRET);
-//     req.user = { id: decodeUser.id };
-//   } catch (error) {
-//     console.log(error, "error decoding jwt token authentication");
-//     res.status(401).json({ message: "Invalid token." });
-//   }
-// };
 
 module.exports = { signup, login, myRecipe };
