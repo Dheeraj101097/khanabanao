@@ -6,7 +6,7 @@ const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
   const [reload, setReload] = useState(0);
   const dish = myDish;
   const handleDelete = async (ID) => {
-    const url = `https://khanabanao-backendr.onrender.com/myRecipePage/${ID}`;
+    const url = `https://khanabanao-backendr.onrender.com/auth/myRecipePage/${ID}`;
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
