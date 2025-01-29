@@ -61,7 +61,7 @@ const EditMyRecipe = () => {
   //
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:5000/auth/myRecipePage/${ID.id}`;
+    const url = `https://khanabanao-backendr.onrender.com/myRecipePage/${ID.id}`;
     try {
       const response = await fetch(url, {
         method: "PUT",
