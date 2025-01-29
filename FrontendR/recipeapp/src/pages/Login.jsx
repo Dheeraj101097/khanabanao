@@ -29,7 +29,7 @@ function Login() {
     }
     //do try catch if name email pass entered
     try {
-      const url = "https://khanabanao-backendr.onrender.com/login";
+      const url = "https://khanabanao-backendr.onrender.com/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
