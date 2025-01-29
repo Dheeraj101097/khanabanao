@@ -13,7 +13,7 @@ const MyRecipePage = () => {
   const MyRecipeData = async () => {
     try {
       const userId = localStorage.getItem("userId");
-      const res = await fetch("http://localhost:5000/auth/myRecipePage", {
+      const res = await fetch("https://khanabanao-backendr.onrender.com/myRecipePage", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
