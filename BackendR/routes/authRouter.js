@@ -1,8 +1,5 @@
 const cors = require("cors");
 
-// ai
-const cors = require("cors");
-
 const run = require("../geminiapi.js");
 //
 const {

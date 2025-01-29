@@ -10,6 +10,7 @@ const EditMyRecipe = () => {
     instructions: "",
     category: "",
     image: "",
+    userId: localStorage.getItem("userId"),
   });
   const navigate = useNavigate();
 

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { handleFailure, handleSuccess } from "../utils";
+import { handleFailure, handleSuccess } from "../utils.js";
+import "react-toastify/dist/ReactToastify.css";
+import { Slide } from "react-toastify";
 
 function Signup() {
   const [signupInfo, setSignupInfo] = useState({
@@ -63,8 +65,14 @@ function Signup() {
 
   return (
     // bg-gray-200
-    <div className="flex items-center justify-center min-h-screen bg-background-pattern1 bg-cover">
-      <div className="bg-white/25 backdrop-blur-sm	 flex flex-col items-center justify-center h-fit px-10 py-6 rounded-2xl">
+    <div
+      className="flex items-center justify-center min-h-screen bg-background-pattern1 bg-cover"
+      style={{
+        backgroundImage:
+          "url('https://img.freepik.com/free-photo/top-close-up-view-vegetables-tomatoes-with-pedicels-garlic-bell-peppers-lemon-oil-onion_140725-72203.jpg?t=st=1738149687~exp=1738153287~hmac=1b6a040e5835f6cda42ad4fe812e0d7dda34c95e4257f21d2218a2d9d879a099&w=996')",
+      }}
+    >
+      <div className="bg-white/25 backdrop-blur-sm border border-black drop-shadow-lg  flex flex-col items-center justify-center h-fit px-10 py-6 rounded-2xl">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Signup
         </h2>
@@ -140,20 +148,20 @@ function Signup() {
             </span>
           </div>
         </form>
-        {/*         <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-          transition:Zoom
-        /> */}
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Slide}
+      />
     </div>
     // className="w-full bg-indigo-600 text-white p-2 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-6"
   );

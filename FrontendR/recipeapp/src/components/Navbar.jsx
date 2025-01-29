@@ -1,8 +1,9 @@
 import React from "react";
-import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { handleFailure, handleSuccess } from "../utils.js";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="justify-center  items-center flex flex-col">
+      <div className="justify-center  items-center flex flex-col ">
         <nav className="h-20 w-full bg-[#2D2D2A] flex flex-row justify-evenly items-center ">
           <div className="h-15  flex flex-row justify-center items-center  p-2 mr-20">
             <img
