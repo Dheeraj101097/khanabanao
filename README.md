@@ -1,4 +1,3 @@
-# khanabanao
 # KhanaBanao 🍽️
 
 KhanaBanao is a **recipe search app** that allows users to find and manage recipes. Users can log in, add, and view their own recipes, ensuring personalized access.
