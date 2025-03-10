@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LoadingEffect } from "./LoadingEffect";
 
 const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
   const [reload, setReload] = useState(0);
@@ -34,6 +35,7 @@ const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
 
   return (
     <>
+      {myDish ? (
       <div className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 max-w-xs mx-auto mb-4 transition-transform transform hover:scale-105 hover:bg-opacity-10  hover:bg-gradient-to-t hover:from-yellow-100  hover:to-amber-300  ">
         <img
           className="h-48 w-full object-cover rounded-[2.5rem] p-2 "
@@ -76,6 +78,9 @@ const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
           </div>
         </div>
       </div>
+      ) : (
+        <LoadingEffect />
+      )}
     </>
   );
 };
