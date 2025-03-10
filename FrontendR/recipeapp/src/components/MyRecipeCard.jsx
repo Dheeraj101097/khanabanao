@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { LoadingEffect } from "./LoadingEffect";
+import { LoadingEffect, LoadingEffect2 } from "../components/LoadingEffect";
 
 const MyRecipeCard = ({ myDish, refreshRecipePage }) => {
   const [reload, setReload] = useState(0);
