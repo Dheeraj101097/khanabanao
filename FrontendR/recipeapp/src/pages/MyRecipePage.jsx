@@ -71,7 +71,7 @@ const MyRecipePage = () => {
           ) : (
             <div className="flex flex-row bg-blue-gray-100 p-8 rounded-xl items-center justify-center">
               <p>No Saved Recipes. Save one to view it here.</p>
-            </div>>
+            </div>
             </div>
           )}
         </div>
