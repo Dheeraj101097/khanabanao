@@ -39,7 +39,7 @@ const MyRecipePage = () => {
   };
 
   return (
-    <>
+     <>
       <Navbar />
       <div className="flex flex-col items-center justify-center">
         {/* <h1 className="flex flex-row items-center justify-center">
@@ -59,19 +59,20 @@ const MyRecipePage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 m-4 sm:m-6 lg:m-8 px-4 sm:px-8 lg:px-20 pt-4 sm:pt-6 lg:pt-8 ">
           {savedDish.length > 0 ? (
-            savedDish.map((elem, index) => (
-              <MyRecipeCard
-                myDish={elem}
-                key={index}
-                refreshRecipePage={refreshPage}
-              />
+            savedDish.map((elem, index) => {
+              return (
+                <MyRecipeCard
+                  myDish={elem}
+                  key={index}
+                  refreshRecipePage={refreshPage}
+                />
+              );
 
               //send refresh to card explict refresh to avoid loop
-            ))
+            })
           ) : (
             <div className="flex flex-row bg-blue-gray-100 p-8 rounded-xl items-center justify-center">
               <p>No Saved Recipes. Save one to view it here.</p>
-            </div>
             </div>
           )}
         </div>
