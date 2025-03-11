@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { handleFailure, handleSuccess } from "../utils";
+import { ToastContainer } from "react-toastify";
+import { handleFailure, handleSuccess } from "../utils.js";
+import "react-toastify/dist/ReactToastify.css";
+import { Slide } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
