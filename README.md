@@ -42,7 +42,7 @@ FoodZone 🍽️ is a recipe application that allows users to browse, search, an
 - JWT for Authentication
 
 ## Installation
-### Frontend
+### Frontend (Vite+React)
 1. Navigate to the `FrontendR/recipeapp` directory:
     ```sh
     cd FrontendR/recipeapp
@@ -78,7 +78,7 @@ FoodZone 🍽️ is a recipe application that allows users to browse, search, an
 
 ## Usage
 ### Frontend
-- Open your browser and navigate to `http://localhost:3000` to use the application.
+- Open your browser and navigate to `http://localhost:5173` to use the application.
 
 ### Backend
 - The backend server will be running on `http://localhost:5000`.
