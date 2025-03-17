@@ -1,5 +1,5 @@
 
-## VIEW LIVE 🍽️ : [https:/foodzone-woad.vercel.app](https://foodzone-woad.vercel.app/)
+## VIEW LIVE 🍽️ : [Click here](https://foodzone-woad.vercel.app/)
 
 ## Table of Contents
 - [Introduction](#introduction)
