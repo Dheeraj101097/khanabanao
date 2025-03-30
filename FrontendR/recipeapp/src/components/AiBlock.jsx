@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaBold, FaSearch } from "react-icons/fa";
-import { useState, useEffect } from "react";
 import { LoadingEffect4 } from "./LoadingEffect";
 
 const AiBlock = () => {
