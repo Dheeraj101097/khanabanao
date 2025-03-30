@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaBold, FaSearch } from "react-icons/fa";
 import { useState, useEffect } from "react";
@@ -10,14 +10,15 @@ const AiBlock = () => {
   const [results, setResults] = useState("");
   const [loadingAI, setLoadingAI] = useState(false); // AI loading state
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const copysearchbox = e.target.value;
     setPrompt(copysearchbox);
-    console.log(copysearchbox);
-  };
+    // console.log(copysearchbox);
+  },[]);
 
   const handleaiSubmit = async (e) => {
     e.preventDefault();
+    if (!prompt.trim()) return; // Avoid empty queries
     setLoadingAI(true); // AI loading state
     try {
       const url = "https://khanabanao-backendr.onrender.com/auth/prompt-post";
@@ -32,11 +33,16 @@ const AiBlock = () => {
 
       const data = await response.json();
       // console.log(data); // JSON.stringify try or parse
-      setResults(data);
+      // setResults(data);
+      if (JSON.stringify(data) !== JSON.stringify(results)) {
+        setResults(data); // ✅ Update state only if different
+      }
     } catch (error) {
       console.log("frontend error: ", error);
-    } 
-      setLoadingAI(false); // AI loading state false make it
+    } finally {
+      setLoadingAI(false);
+    }
+      // setLoadingAI(false); // AI loading state false make it
     
   };
   // parsing result
