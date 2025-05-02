@@ -26,7 +26,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="https://foodzone-woad.vercel.app/"
+                href="https://foodzone-woad.vercel.app/home"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary flex items-center justify-center gap-2 text-center"
