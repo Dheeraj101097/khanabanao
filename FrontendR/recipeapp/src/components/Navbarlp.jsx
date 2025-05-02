@@ -60,7 +60,7 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <a
-          href="https://foodzone-woad.vercel.app/"
+          href="https://foodzone-woad.vercel.app/home"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:block btn-primary"
