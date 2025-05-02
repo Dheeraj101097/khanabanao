@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-green: #4caf50;
+  --secondary-orange: #ff9800;
+  --accent-blue: #03a9f4;
+  --tertiary-purple: #9c27b0;
+  --light-cream: #fff8e1;
+  --fresh-mint: #e8f5e9;
+  --soft-peach: #ffe0b2;
+  --sky-blue: #e8f5fe;
+  --lavender: #f3e5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* body {
+  font-family: 'Poppins', sans-serif;
+  @apply bg-gradient-to-br from-fresh-mint via-white to-sky-blue text-gray-800;
+} */
+
+body {
+  font-family: "Poppins", sans-serif;
+  @apply bg-gradient-to-br from-green-200 via-white to-sky-400 text-gray-800;
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 md:px-8 lg:px-16;
+  }
+
+  .btn-primary {
+    @apply py-3 px-6 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+  }
+
+  .btn-secondary {
+    @apply py-3 px-6 bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-gray-800 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-600;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto;
+  }
+
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-white/20;
+  }
+}

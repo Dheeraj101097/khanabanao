@@ -11,6 +11,7 @@ import EditMyRecipe from "./pages/EditMyRecipe";
 import ViewMyRecipe from "./pages/ViewMyRecipe";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -26,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/home" element={PrivateRoute(<Home />)} />
-        <Route path="/" element={PrivateRoute(<Home />)} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contact" element={<Contact />} />

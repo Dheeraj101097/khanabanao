@@ -19,7 +19,7 @@ const Navbar = () => {
     localStorage.removeItem("userId");
 
     setTimeout(() => {
-      navigate("/login");
+      navigate("/");
       handleSuccess("Logged out Succesfully");
     }, 1000);
   };
